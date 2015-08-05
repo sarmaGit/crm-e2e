@@ -4,7 +4,7 @@ var user = require('./../credentials/userCredentials.js');
 var site = require('./../credentials/projectConstants.js');
 module.exports = {
     tags: ['transfer'],
-    beforeEach: function (client) {        
+    beforeEach: function (client) {
         client
                 .url(site.url)
                 .waitForElementVisible('body', 1000)
@@ -13,7 +13,7 @@ module.exports = {
                 .setValue('input#password', user.password)
                 .click('input[type=submit]')
                 .waitForElementVisible('#taskbar', 10000)
-                .url(site.url+'/company.php?cid=237120#ui-tabs-3')
+                .url(site.url+'/company.php?cid='+site.transfer_cid+'#ui-tabs-3')
                 .pause(1000)
                 .click('.action_transfer_extra');                                
     },
