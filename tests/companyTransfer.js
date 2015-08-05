@@ -22,5 +22,5 @@ module.exports = {
                 .pause(500)
                 .assert.visible("#addservice-form")
                 .end();
-    }    
+    }
 };
