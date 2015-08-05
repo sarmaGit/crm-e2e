@@ -13,7 +13,7 @@ module.exports = {
 ###insert in /credentials/projectConstants.js
 ```
 var site = {};
-site.url ='srm url';
+site.url ='crm url';
 module.exports = site;
 ```
 
