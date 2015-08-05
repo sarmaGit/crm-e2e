@@ -2,7 +2,7 @@
 requires nodejs latest stable
 for windows users requires latest java-SDK
 
-#insert in /credentials/userCredentials.js
+###insert in /credentials/userCredentials.js
 ```
 module.exports = {
     login: 'valid_login',
@@ -10,12 +10,12 @@ module.exports = {
 };
 ```
 
-#insert in /credentials/projectConstants.js
+###insert in /credentials/projectConstants.js
 ```
 var site = {};
 site.url ='srm url';
 module.exports = site;
 ```
 
-#do not use npm install 
+###do not use npm install 
 
