@@ -15,8 +15,7 @@ module.exports = {
                 .waitForElementVisible('#taskbar', 10000)
                 .url(site.url+'/clients.php?tab=4#ui-tabs-4')
                 .pause(1000)
-                .click('#nodoubles_confirmation')
-        ;                
+                .click('#nodoubles_confirmation');                
     },
     "check company name requiring": function(client){
         client
@@ -52,11 +51,12 @@ module.exports = {
                 .click('input[name="addr"]')
                 .click('#region_id')
                 .pause(500)
-                .keys(client.Keys.UP_ARROW) // hit arrow down
+                .keys(client.Keys.UP_ARROW) // hit arrow up
                 .keys(client.keys.ENTER) // hit enter
-                .click('input[name="addr"]')
+                .click('#cname')                
+                .pause(500)
                 .click('#cityid')
-                .keys(client.Keys.UP_ARROW) // hit arrow down
+                .keys(client.Keys.UP_ARROW) // hit arrow up
                 .keys(client.keys.ENTER) // hit enter
                 .setValue('input[name="addr"]', randomValue)
                 .setValue('#phone_0', phone)
@@ -65,7 +65,5 @@ module.exports = {
                 .assert.containsText('.ci_name',randomValue)
                 .pause(1000)
                 .end();
-                
-    }
-    
+    }    
 };
