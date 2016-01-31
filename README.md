@@ -19,3 +19,4 @@ module.exports = site;
 
 ###do not use npm install 
 
+"# crm-e2e" 
