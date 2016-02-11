@@ -33,46 +33,31 @@ module.exports = {
                 .keys(client.Keys.DOWN_ARROW) // hit arrow down
                 .keys(client.keys.ENTER)
                 .setValue('#phone_0', phone)
-        
-                .click('div#ur_address select#ur_address-level-1')
-                .keys(client.Keys.DOWN_ARROW) // hit arrow down
+                .pause(1000)
+
+                .click('div#ui-accordion-accordion-panel-2 select#ur_address-level-1')
+                .keys(client.Keys.UP_ARROW) // hit arrow down
                 .keys(client.keys.ENTER)
-                .pause(100000)
+                .setValue('div#ui-accordion-accordion-panel-2 p.ci_addr input[type=text]', 'Elm Street, 13')
+                .click('.clientsubmit')
+                .pause(5000)
+                .verify.cssProperty('#alert', "display", "block", "first level address not selected")
+                .keys(client.keys.ENTER)
+                .pause(10000)
+
+                .setValue('#ur_address-level-1', '112')
+                .click('#ur_address-level-1')
+                .keys(client.Keys.DOWN_ARROW) // hit arrow down
+                .pause(3000)
+                .keys(client.keys.ENTER)
                 .click('.clientsubmit')
                 .pause(1000)
                 .verify.cssProperty('#alert', "display", "block", "only first level selected")
                 .keys(client.keys.ENTER)
                 .pause(2000)
 
-                .click('div#ui-accordion-accordion-panel-2 select#ur_address-level-2')
-                .keys(client.Keys.DOWN_ARROW) // hit arrow down
-                .keys(client.Keys.DOWN_ARROW) // hit arrow down
-                .keys(client.keys.ENTER)
-                .click('.clientsubmit')
-                .pause(1000)
-                .verify.cssProperty('#alert', "display", "block", "only second level selected")
-                .keys(client.keys.ENTER)
-                .pause(2000)
 
-                .click('div#ui-accordion-accordion-panel-2 select#ur_address-level-3')
-                .keys(client.Keys.DOWN_ARROW) // hit arrow down
-                .keys(client.keys.ENTER)
-                .click('.clientsubmit')
-                .pause(1000)
-                .verify.cssProperty('#alert', "display", "block", "street and home are eampty")
-                .keys(client.keys.ENTER)
-                .pause(2000)
-                
-                
-                .click('div#ui-accordion-accordion-panel-2 select#ur_address-level-1')
-                .keys(client.Keys.UP_ARROW) // hit arrow down
-                .keys(client.keys.ENTER)
-                .setValue('div#ui-accordion-accordion-panel-2 p.ci_addr input[type=text]', 'Elm Street, 13')
-                .click('.clientsubmit')
-                .pause(1000)
-                .verify.cssProperty('#alert', "display", "block", "first level address not selected")
-                .keys(client.keys.ENTER)
-                .pause(2000)
+                .pause(20000)
 
                 .end();
     }
