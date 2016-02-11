@@ -54,7 +54,16 @@ module.exports = {
                 .keys(client.Keys.TAB)
                 .verify.cssProperty('#url_status_0', "display", "block", "check for added existed url")
                 .clearValue('#url_0')
+        
+                .setValue('#url_0', 'вася.рф')
+                .keys(client.Keys.TAB)
+                .verify.value('#url_0', 'http://вася.рф', "test kirilic symbols")
+                .clearValue('#url_0')
 
+                .setValue('#url_0', 'xn--80ad0c0c.xn--p1ai')
+                .keys(client.Keys.TAB)
+                .verify.value('#url_0', 'http://вася.рф', "punycode converts to kirilic")
+                .clearValue('#url_0')
                 .end();
     }
 }	

@@ -18,7 +18,7 @@ module.exports = {
                 .pause(5000)
                 .click('#nodoubles_confirmation');
     },
-    "check legal address": function (client) {
+    "check legal address if only first lvl selected and text field is eampty": function (client) {
         var randomValue = new Date().getTime();
         var phone = '79617' + Math.floor(100000 + Math.random() * 900000);
         client
@@ -35,16 +35,6 @@ module.exports = {
                 .setValue('#phone_0', phone)
                 .pause(1000)
 
-                .click('div#ui-accordion-accordion-panel-2 select#ur_address-level-1')
-                .keys(client.Keys.UP_ARROW) // hit arrow down
-                .keys(client.keys.ENTER)
-                .setValue('div#ui-accordion-accordion-panel-2 p.ci_addr input[type=text]', 'Elm Street, 13')
-                .click('.clientsubmit')
-                .pause(5000)
-                .verify.cssProperty('#alert', "display", "block", "first level address not selected")
-                .keys(client.keys.ENTER)
-                .pause(10000)
-
                 .setValue('#ur_address-level-1', '112')
                 .click('#ur_address-level-1')
                 .keys(client.Keys.DOWN_ARROW) // hit arrow down
@@ -53,12 +43,6 @@ module.exports = {
                 .click('.clientsubmit')
                 .pause(1000)
                 .verify.cssProperty('#alert', "display", "block", "only first level selected")
-                .keys(client.keys.ENTER)
-                .pause(2000)
-
-
-                .pause(20000)
-
-                .end();
+                .end()
     }
 }

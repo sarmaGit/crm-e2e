@@ -50,6 +50,21 @@ module.exports = {
                 .verify.cssProperty('#email_status_0', "display", "block", "twice or more .. in user name")
                 .clearValue('#email_0')
 
+                .setValue('#email_0', 'aprel@optima.com.ua')
+                .keys(client.Keys.TAB)
+                .verify.cssProperty('#email_status_0', "display", "block", "existed email")
+                .clearValue('#email_0')
+
+                .setValue('#email_0', 'вася@вася.рф')
+                .keys(client.Keys.TAB)
+                .verify.value('#email_0', 'вася@вася.рф', "not changed after losing focus")
+                .clearValue('#email_0')
+        
+                .setValue('#email_0', 'xn--@-7sbbfc2gd2ie.xn--p1ai')
+                .keys(client.Keys.TAB)
+                .verify.value('#email_0', 'вася@вася.рф', "convert punycode to kirilic symbols")
+                .clearValue('#email_0')
+                
                 .end();
     }
 }	
